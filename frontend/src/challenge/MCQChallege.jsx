@@ -1,15 +1,33 @@
 import React, { useEffect, useState } from "react";
 
-const MCQChallege = (challenge, key, showExplanation = false) => {
+const MCQChallege = ({ challenge, showExplanation = false }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isShowExplanation, setIsShowExplanation] = useState(showExplanation);
   useEffect(() => {
     console.log(challenge);
   });
-  const options =
-    typeof challenge?.options === "string"
-      ? JSON.parse(challenge?.options)
-      : challenge?.options;
+
+  const parseOptions = (opt) => {
+    if (typeof opt === "string") {
+      try {
+        const parsedOnce = JSON.parse(opt);
+        return typeof parsedOnce === "string"
+          ? JSON.parse(parsedOnce)
+          : parsedOnce;
+      } catch (e) {
+        console.error("Failed to parse options:", e);
+        return [];
+      }
+    }
+    return opt;
+  };
+
+  const options = parseOptions(challenge?.options);
+
+  // const options =
+  //   typeof challenge?.options === "string"
+  //     ? JSON.parse(challenge?.options)
+  //     : challenge?.options;
 
   const handleOptionSelect = (index) => {
     if (selectedOption !== null) return;
@@ -42,7 +60,7 @@ const MCQChallege = (challenge, key, showExplanation = false) => {
             <div
               className={getOptionClass(index)}
               key={index}
-              onClick={handleOptionSelect(index)}
+              onClick={() => handleOptionSelect(index)}
             >
               {option}
             </div>
@@ -51,7 +69,7 @@ const MCQChallege = (challenge, key, showExplanation = false) => {
 
         {isShowExplanation && selectedOption !== null && (
           <div className="explanation">
-            <h4>Explanatino</h4>
+            <h4>Explanation</h4>
             <p>{challenge?.explanation}</p>
           </div>
         )}

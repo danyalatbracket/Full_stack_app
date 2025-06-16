@@ -27,3 +27,6 @@ venv9898
 venv9898/
 .venv9898/
 .env
+**/__pycache__/
+__pycache__/
+VITE_CLERK_PUBLISHABLE_KEY=pk_test_bWlnaHR5LWtpdC0xOC5jbGVyay5hY2NvdW50cy5kZXYk

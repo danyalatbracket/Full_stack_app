@@ -2,3 +2,6 @@ venv9898
 venv9898/
 .venv9898/
 .env
+__pycache__/
+**/__pycache__/
+*/__pycache__/

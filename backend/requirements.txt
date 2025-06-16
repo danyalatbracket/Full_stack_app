@@ -2,14 +2,10 @@ fastapi
 uvicorn
 sqlalchemy
 python-dotenv
-clerk-sdk-python
+# clerk-sdk-python
 clerk-backend-api
 langchain
 langchain-ai21
-faiss-cpu
 python-dotenv
-pypdf
-python-docx
-markdown
 langchain-community
 langchain_ollama

@@ -66,7 +66,7 @@ async def generate_challenge(request: ChallengeRequest,request_obj:Request, db: 
             "id": new_challenge.id,
             "difficulty": request.difficulty,
             "title": new_challenge.title,
-            "options": new_challenge.options,
+            "options": json.dumps(new_challenge.options),
             "correct_answer_id": new_challenge.correct_answer_id,
             "explanation": new_challenge.explanation,
             "timestamp": new_challenge.date_created.isoformat(),

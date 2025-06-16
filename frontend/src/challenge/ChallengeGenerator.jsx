@@ -32,7 +32,7 @@ const ChallengeGenerator = () => {
         body: JSON.stringify({ difficulty }),
       });
 
-      setChallenge(data);
+      setChallenge({ ...data });
       fetchQuota();
       setIsLoading(false);
     } catch (error) {
@@ -77,7 +77,7 @@ const ChallengeGenerator = () => {
           // disabled={isLoading || quota?.quota_remaining === 0}
           className="generate-button"
         >
-          {isLoading ? "Generating" : "Generate Challenge"}
+          {isLoading ? "Generating..." : "Generate Challenge"}
         </button>
         {error && (
           <div className="error-message">
@@ -85,7 +85,12 @@ const ChallengeGenerator = () => {
           </div>
         )}
 
-        {challenge && <MCQChallege challenge={challenge}></MCQChallege>}
+        {challenge && !isLoading && (
+          <MCQChallege
+            key={challenge.title}
+            challenge={challenge}
+          ></MCQChallege>
+        )}
       </div>
     </>
   );
