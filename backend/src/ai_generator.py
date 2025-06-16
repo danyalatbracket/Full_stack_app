@@ -17,10 +17,12 @@ client = AI21Client(api_key=AI21_API_KEY)
 
 def generate_challenge_with_ai(difficulty: str):
 
-    system_prompt = """You are an expert coding challenge creator. 
-    Your task is to generate a coding question with multiple choice answers.
-    The question should be appropriate for the specified difficulty level.
-    Important Note! => The coding question should not include any code but the options can have code based on the question.
+    system_prompt = """You are an expert in creating coding challenges.
+    Your task is to generate a coding question along with multiple-choice answers.
+    The question should match the specified difficulty level.
+
+    Important Note:
+    The question must not include any code, but the answer options may include code snippets based on the question
 
     For easy questions: Focus on basic syntax, simple operations, or common programming concepts.
     For medium questions: Cover intermediate concepts like data structures, algorithms, or language features.
