@@ -4,6 +4,7 @@ sqlalchemy
 python-dotenv
 # clerk-sdk-python
 clerk-backend-api
+svix
 langchain
 langchain-ai21
 python-dotenv
